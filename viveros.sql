@@ -1,3 +1,9 @@
+DROP DATABASE IF EXISTS viveros;
+CREATE DATABASE viveros;
+
+\c viveros 
+--Para conectarse a la base de datos recién creada
+
 -- Limpieza previa si existen tablas
 DROP TABLE IF EXISTS DETALLE_PEDIDO CASCADE;
 DROP TABLE IF EXISTS PEDIDO CASCADE;
@@ -172,6 +178,12 @@ INSERT INTO DETALLE_PEDIDO (num_pedido, id_producto, cantidad) VALUES
 -- EJEMPLOS DE PRUEBA DELETE
 -- Borrar un Vivero (Prueba CASCADE en Zonas y Stock)
 DELETE FROM VIVERO WHERE id_vivero = 5;
+
+-- Borra automáticamente el registro de stock asociado en stock_zona (no se puede borrar el producto si está en algún pedido)
+-- DELETE FROM producto WHERE id_producto = 5;
+
+-- Borra las filas de stock agotado
+DELETE FROM STOCK_ZONA WHERE stock = 0;
 
 -- Borrar un Cliente (Prueba RESTRICT: Dará error si tiene pedidos asociados)
 -- DELETE FROM CLIENTE WHERE id_cliente = 1;
