@@ -1,6 +1,10 @@
-# Descripción del Modelo Relacional (`viveros`)
+# Práctica 4 - Modelo relacional
+## Script
+Cabe destacar la creación de la base de datos para posteriormente conectarse a ella con \c viveros. Se puede crear de otra forma con:
+`CREATE DATABASE viveros;` para ya después conectarse a ella y ejecutar el script con todos los siguientes comandos.
 
 
+## Estructura del modelo relacional
 ### `vivero`
 * **Clave Primaria (PK):** `id_vivero`
 * **Atributos:** `nombre`, `latitud`, `longitud`
